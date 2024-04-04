@@ -5,6 +5,8 @@
 <head>
   <script src="script.js"></script>
   <link rel="stylesheet" href="style.css">
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js"></script>
 </head>
 
   
@@ -23,6 +25,25 @@
   <p id="output"></p>
 
    <script src="script.js"></script>
+
+  <!-- JS for Firebase -->
+	<script type="module">
+  	// setup firebase app and firestore database
+  	import { getFirestore } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyDqlsu1JVtO8uvvGo77B-A1QIzfew0t0sU",
+      authDomain: "madlibs-7f4f8.firebaseapp.com",
+      projectId: "madlibs-7f4f8",
+      storageBucket: "madlibs-7f4f8.appspot.com",
+      messagingSenderId: "354466264589",
+      appId: "1:354466264589:web:9a2c3785e73c968de2c744"
+    };
+  	const app = firebase.initializeApp(firebaseConfig);
+  	var db = getFirestore(app);
+  	console.log("firebase setup complete!");
+	</script>
+	<script src="script.js"></script>
+
 </body>
 
 </html>
