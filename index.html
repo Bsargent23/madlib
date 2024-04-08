@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <h1> Mad libs at the Beach</h1>
-  
+<h1> Mad libs at the Beach</h1>
+
 <head>
   <script src="script.js"></script>
   <link rel="stylesheet" href="style.css">
@@ -9,27 +9,27 @@
   <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js"></script>
 </head>
 
-  
+
 <body>
 
   <form>
-     Verb+ing: <input type="text" id="verb"> <br><br>
-     Noun- animal: <input type="text" id="animal">       <br><br>
-     Noun-thing: <input type="text" id="thing">         <br><br>
-    Adjective: <input type="text" id="adjective"> 
+    Verb+ing: <input type="text" id="verb"> <br><br>
+    Noun- animal: <input type="text" id="animal"> <br><br>
+    Noun-thing: <input type="text" id="thing"> <br><br>
+    Adjective: <input type="text" id="adjective">
   </form>
   <br>
 
-  <button type="button" onclick= "madlib()"> mad lib</button>
+  <button type="button" onclick="madlib()"> mad lib</button>
 
   <p id="output"></p>
 
-   <script src="script.js"></script>
+  <script src="script.js"></script>
 
   <!-- JS for Firebase -->
-	<script type="module">
-  	// setup firebase app and firestore database
-  	import { getFirestore } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
+  <script type="module">
+    // setup firebase app and firestore database
+    import {getFirestore} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore.js";
     const firebaseConfig = {
       apiKey: "AIzaSyDqlsu1JVtO8uvvGo77B-A1QIzfew0t0sU",
       authDomain: "madlibs-7f4f8.firebaseapp.com",
@@ -38,11 +38,25 @@
       messagingSenderId: "354466264589",
       appId: "1:354466264589:web:9a2c3785e73c968de2c744"
     };
-  	const app = firebase.initializeApp(firebaseConfig);
-  	var db = getFirestore(app);
-  	console.log("firebase setup complete!");
-	</script>
-	<script src="script.js"></script>
+    const app = firebase.initializeApp(firebaseConfig);
+    var db = getFirestore(app);
+    console.log("firebase setup complete!");
+  </script>
+  <script src="script.js"></script>
+
+
+  var story= document.getElementById("story").innerHTML;console.log("story: " + story);)
+
+  var storyData: = {
+  verb+ing: verb+ing
+  noun-animal: noun-animal
+  noun-thing: noun-thing
+  adjective: adjective
+  };
+
+  var storyJSON = JSON.stringify(storyData);
+  consol.log("storyJSON: " + storyJSON) ;
+  return storyJSON;
 
 </body>
 
