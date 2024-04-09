@@ -1,4 +1,8 @@
 function madlib() {
+
+  console.log("madlib() called");
+  var verb = document.getElementById("verb").value;
+
   var animal =
     document.getElementById("animal").value;
 
@@ -8,25 +12,28 @@ function madlib() {
   var adjective =
     document.getElementById("adjective").value;
 
-  var verb = document.getElementById("verb").value;
+    document.getElementById("story").innerHTML = "Yesterday we went to the beach with a(n) <u>" + animal + "</u>, . We built a sandcastle with sand and a <u>" + thing + "</u>." + " The water was blue but also <u>" + adjective + "</u>." + " We had a race to see who could pick up seashells while <u>" + verb + "</u>.";
 
-  document.getElementById("output").innerHTML = "Yesterday we went to the beach with a(n) " + animal + ", . We built a sandcastle with sand and a " + thing + "." + " The water was blue but also " + adjective + "." + " We had a race to see who could pick up seashells while " + verb + ".";
-
-
-  var story = document.getElementById("story").innerHTML; console.log("story: " + story);
-
+  var story = document.getElementById("story").innerHTML;
+  console.log("story: " + story);
 
   var storyData = {
     timestamp: Date.now(),
-    story = story,
-    verb ing: verb+ing
-  noun - animal: noun - animal
-  noun - thing: noun - thing
+    story: story,
+    verb: verb,
+  animal: animal,
+  thing: thing,
   adjective: adjective
+  };
 
-};
+  console.log("storyData: " + storyData);
 
-var storyJSON = JSON.stringify(storyData);
-console.log("storyJSON: " + storyJSON);
-return storyJSON;
+  var storyJSON = JSON.stringify(storyData);
+  console.log("storyJSON: " + storyJSON);
+  return storyJSON;
 }
+
+
+
+
+
