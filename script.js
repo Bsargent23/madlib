@@ -12,11 +12,24 @@ const db = firebase.firestore();
 console.log("firebase setup complete!");
 
 
+function saveMadLib() {
+  console.log("saveMadLib() called");
+}
+
+function retrieveMadLib() {
+  console.log("retrieveMadLib() called");
+}
+
+function editMadLib() {
+  console.log("editMadLib() called");
+}
+
+function deleteMadLib() {
+  console.log("deleteMadLib() called");
+}
 
 
-
-
-function madlib() {
+function createmadlib() {
 
   console.log("madlib() called");
   var verb = document.getElementById("verb").value;
@@ -48,7 +61,7 @@ function madlib() {
 
   var storyJSON = JSON.stringify(storyData);
   console.log("storyJSON: " + storyJSON);
-  return storyJSON;
+  return storyData;
 }
 
 
