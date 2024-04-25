@@ -1,3 +1,7 @@
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+// Initialize Firestore
+const db = firebase.firestore();
 // setup firebase app and firestore database
 const firebaseConfig = {
   apiKey: "AIzaSyDqlsu1JVtO8uvvGo77B-A1QIzfew0t0sU",
@@ -7,13 +11,15 @@ const firebaseConfig = {
   messagingSenderId: "354466264589",
   appId: "1:354466264589:web:9a2c3785e73c968de2c744"
 };
-const app = firebase.initializeApp(firebaseConfig);
-const db = firebase.firestore();
-console.log("firebase setup complete!");
+
 
 
 function saveMadLib() {
   console.log("saveMadLib() called");
+  
+var storyData = createMadLib():
+  
+  db.collection("madlibs").doc(storyData.storyName).set(storyData); alert(storyData.storyName + " saved to database!");
 }
 
 function retrieveMadLib() {
