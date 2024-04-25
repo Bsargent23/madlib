@@ -29,6 +29,11 @@ function deleteMadLib() {
 }
 
 
+document.getElementById("saveButton").addEventListener("click", saveMadLib);
+document.getElementById("retrieveButton").addEventListener("click", retrieveMadLib);
+document.getElementById("EditButton").addEventListener("click", editMadLib);
+document.getElementById("deleteButton").addEventListener("click", deleteMadLib);
+
 function createmadlib() {
 
   console.log("madlib() called");

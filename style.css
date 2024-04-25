@@ -6,11 +6,9 @@ html {
 
 body {
   background-image: url("beach.png");
+  color: white; 
 }
 
-body {
-  color: white;
-}
 
 h1 {
   color: white;
