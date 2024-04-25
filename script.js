@@ -1,7 +1,4 @@
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-// Initialize Firestore
-const db = firebase.firestore();
+
 // setup firebase app and firestore database
 const firebaseConfig = {
   apiKey: "AIzaSyDqlsu1JVtO8uvvGo77B-A1QIzfew0t0sU",
@@ -11,34 +8,13 @@ const firebaseConfig = {
   messagingSenderId: "354466264589",
   appId: "1:354466264589:web:9a2c3785e73c968de2c744"
 };
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+console.log("firebase setup complete!");
 
 
 
-function saveMadLib() {
-  console.log("saveMadLib() called");
-  
-var storyData = createMadLib():
-  
-  db.collection("madlibs").doc(storyData.storyName).set(storyData); alert(storyData.storyName + " saved to database!");
-}
 
-function retrieveMadLib() {
-  console.log("retrieveMadLib() called");
-}
-
-function editMadLib() {
-  console.log("editMadLib() called");
-}
-
-function deleteMadLib() {
-  console.log("deleteMadLib() called");
-}
-
-
-document.getElementById("saveButton").addEventListener("click", saveMadLib);
-document.getElementById("retrieveButton").addEventListener("click", retrieveMadLib);
-document.getElementById("EditButton").addEventListener("click", editMadLib);
-document.getElementById("deleteButton").addEventListener("click", deleteMadLib);
 
 function createmadlib() {
 
@@ -56,6 +32,9 @@ function createmadlib() {
 
     document.getElementById("story").innerHTML = "Yesterday we went to the beach with a(n) <u>" + animal + "</u>, . We built a sandcastle with sand and a <u>" + thing + "</u>." + " The water was blue but also <u>" + adjective + "</u>." + " We had a race to see who could pick up seashells while <u>" + verb + "</u>.";
 
+
+
+  
   var story = document.getElementById("story").innerHTML;
   console.log("story: " + story);
 
@@ -75,7 +54,26 @@ function createmadlib() {
   return storyData;
 }
 
+function saveMadLib() {
+  console.log("saveMadLib() called");
+}
+  
+var storyData = createMadLib()
+
+db.collection("madlibs").doc(storyData.storyName).set(storyData); alert(storyData.storyName + " saved to database!");
 
 
+
+function retrieveMadLib() {
+  console.log("retrieveMadLib() called");
+}
+
+function editMadLib() {
+  console.log("editMadLib() called");
+}
+
+function deleteMadLib() {
+  console.log("deleteMadLib() called");
+}
 
 
