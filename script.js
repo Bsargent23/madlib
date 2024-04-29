@@ -12,11 +12,9 @@ const app = firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 console.log("firebase setup complete!");
 
+// create a function to create the madlib
 
-
-
-
-function createmadlib() {
+function createMadLib() {
 
   console.log("madlib() called");
   var verb = document.getElementById("verb").value;
@@ -54,6 +52,7 @@ function createmadlib() {
   return storyData;
 }
 
+// create a function to save the madlib
 function saveMadLib() {
   console.log("saveMadLib() called");
 }
@@ -63,15 +62,21 @@ var storyData = createMadLib()
 db.collection("madlibs").doc(storyData.storyName).set(storyData); alert(storyData.storyName + " saved to database!");
 
 
-
+// create a function to retrieve the madlib
 function retrieveMadLib() {
   console.log("retrieveMadLib() called");
 }
 
+document.getElementById("story").innerHTML = ""
+
+
+// create a function to edit the madlib
 function editMadLib() {
   console.log("editMadLib() called");
 }
 
+
+// create a function to delete the madlib
 function deleteMadLib() {
   console.log("deleteMadLib() called");
 }

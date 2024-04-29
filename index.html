@@ -8,11 +8,9 @@
 
   <link rel="stylesheet" href="style.css" type="text/css" />
   
-  <script src="script.js"></script>
-  
 
-  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.10.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore-compat.js"></script>
 </head>
 
 
@@ -26,7 +24,13 @@
   </form>
   <br>
 
-  <button type="button" onclick="createmadlib()"> create mad lib</button> <br><br>
+  <form> 
+    name your story using this format (storybyB): <input type="text" id="yourstoryname"></form><br>
+
+
+
+  
+  <button type="button" onclick="createMadLib()"> create mad lib</button> <br><br>
 
 
   <button id="saveButton" onclick="saveMadLib()">
@@ -46,8 +50,7 @@
   <p id="story"></p>
 
   <script src="script.js"></script>
-
-
+  
 </body>
 
 </html>
