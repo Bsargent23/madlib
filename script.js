@@ -101,7 +101,38 @@ document.getElementById("story").innerHTML = ""
 // create a function to edit the madlib
 function editMadLib() {
   console.log("editMadLib() called");
+
+  //ask user to retrieve existing madlib
+  var storyName = prompt("Enter the name of the story you want to edit: ");
+  db.collection("madlibs")
+  .doc(storyName)
+  .get()
+  .then((doc) => {
+    if (doc.exists) {
+      console.log("Document data:", doc.data());
+      var StoryData = doc.data();
+
+      document.getElementById("verb").value = StoryData.verb
+      document.getElementById("animal").value = StoryData.animal
+      document.getElementById("thing").value = StoryData.thing
+      document.getElementById("adjective").value = StoryData.adjective
+      document.getElementById("storyName").value = storyData.storyName;
+      
+
+      
+      document.getElementById("story").innerHTML = StoryData.story;
+    } else {
+      console.log("No such document!");
+      document.getElementById("story").innerHTML = "No such document!";
+    }
+  })
+  .catch((error) => {
+    console.log("Error getting document:", error);
+    document.getElementById("story").innerHTML = "Error getting document!";
+  });
 }
+
+
 
 
 // create a function to delete the madlib
