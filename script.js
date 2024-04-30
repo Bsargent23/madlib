@@ -30,19 +30,19 @@ function createMadLib() {
 
     document.getElementById("story").innerHTML = "Yesterday we went to the beach with a(n) <u>" + animal + "</u>, . We built a sandcastle with sand and a <u>" + thing + "</u>." + " The water was blue but also <u>" + adjective + "</u>." + " We had a race to see who could pick up seashells while <u>" + verb + "</u>.";
 
-
-
   
   var story = document.getElementById("story").innerHTML;
   console.log("story: " + story);
-
+var storyName = document.getElementById("yourstoryname").value;
   var storyData = {
     timestamp: Date.now(),
     story: story,
     verb: verb,
   animal: animal,
   thing: thing,
-  adjective: adjective
+  adjective: adjective,
+  storyName:storyName
+  
   };
 
   console.log("storyData: " + storyData);
@@ -55,11 +55,11 @@ function createMadLib() {
 // create a function to save the madlib
 function saveMadLib() {
   console.log("saveMadLib() called");
+  var storyData = createMadLib()
+  db.collection("madlibs").doc(storyData.storyName).set(storyData); alert(storyData.storyName + " saved to database!");
 }
   
-var storyData = createMadLib()
 
-db.collection("madlibs").doc(storyData.storyName).set(storyData); alert(storyData.storyName + " saved to database!");
 
 
 // create a function to retrieve the madlib
@@ -137,7 +137,31 @@ function editMadLib() {
 
 // create a function to delete the madlib
 function deleteMadLib() {
+  // this method will delete an exisiting madlib from the database
   console.log("deleteMadLib() called");
+  //ask user to retrieve existing madlib
+  var storyName = prompt("Enter the name of the story you want to delete: ");
+  db.collection("madlibs")
+  .doc(storyName)
+  .get()
+  .then((doc) => {
+  //if the madlib exists, delete it, if not say "Story not found!"
+    if (doc.exists) {
+      console.log("Document data:", doc.data());
+      var storyData = doc.data();
+      document.getElementById("story").innerHTML = 
+        storyData.storyName + " deleted from database!";
+      db.collection("madlibs").doc(storyName).delete();
+    } else {
+      //doc data will be undefined in this case
+      console.log("No such document!");
+      document.getElementById("story").innerHTML = "No such document!";
+    }
+    })
+  .catch((error) => {
+    console.log("errror getting document:", error);
+    document.getElementById("story").innerHTML = "Error getting document!";
+    
+    
+  });
 }
-
-
