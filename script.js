@@ -64,8 +64,36 @@ db.collection("madlibs").doc(storyData.storyName).set(storyData); alert(storyDat
 
 // create a function to retrieve the madlib
 function retrieveMadLib() {
+  // this method will retrieve an exisiting madlib from the database
   console.log("retrieveMadLib() called");
+//ask users to type in the name of story
+
+  var storyName = prompt("Enter the name of the story you want to retrieve: "); 
+  db.collection("madlibs")
+  .doc(storyName)
+  .get()
+  .then((doc) => {
+//if the madlib exists, display it, if not say "Story not found!"
+    if (doc.exists) {
+      console.log("Document data:", doc.data());
+      var StoryData = doc.data();
+      document.getElementById("story").innerHTML = StoryData.story;
+    } else {
+      // doc.data() will be undefined in this case
+      console.log("No such document!");
+      documemt.getElementById("story").innerHTML = "No such document!";
+    }
+  })
+  .catch((error) => {
+  console.log("Error getting document:", error);
+  document.getElementById("story").innerHTML = "Error    getting document!";
+});
 }
+
+
+
+
+
 
 document.getElementById("story").innerHTML = ""
 
